@@ -1,21 +1,23 @@
 package Pieces;
 
-import Game.Color;
-import Game.Location;
-import Game.Piece;
-import Game.Type;
+import Game.*;
 
 import java.util.ArrayList;
 
 public class Bishop extends Piece {
 
-    public Bishop(Location location, Type type, Color color, boolean isDead) {
-        super(location, type, color, isDead);
+
+    public Bishop(Board board, Location location, Type type, Color color, boolean isDead) {
+        super(board, location, type, color, isDead);
     }
 
     @Override
-    public boolean isMoveValid(int x, int y) {
+    public boolean isMoveValid(Location destination) {
         return false;
     }
 
+    @Override
+    public boolean isPieceInTheWay(Location destination) {
+        return false;
+    }
 }

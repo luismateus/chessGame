@@ -1,13 +1,10 @@
 package Pieces;
 
-import Game.Color;
-import Game.Location;
-import Game.Piece;
-import Game.Type;
+import Game.*;
 
 public class Pawn extends Piece {
-    public Pawn(Location location, Type type, Color color, boolean isDead) {
-        super(location, type, color, isDead);
+    public Pawn(Board board, Location location, Type type, Color color, boolean isDead) {
+        super(board,location, type, color, isDead);
         type = Type.PAWN;
     }
 
@@ -21,10 +18,12 @@ public class Pawn extends Piece {
     * */
 
     @Override
-    public boolean isMoveValid(int d_x, int d_y) {
+    public boolean isMoveValid(Location destination) {
+        int d_x = destination.getX();
+        int d_y = destination.getY();
         int c_x = this.getLocation().getX();
         int c_y = this.getLocation().getY();
-        boolean isfirstMove = this.isFirstMove;
+        boolean isFirstMove = this.isFirstMove;
 
         int direction = 1;
         if(this.getColor() == Color.BLACK){
@@ -37,10 +36,15 @@ public class Pawn extends Piece {
         if(distance_x == 0 && distance_y == 1){
             return true;
         }
-        else if(distance_x == 0 && distance_y == 2 && isfirstMove){
+        else if(distance_x == 0 && distance_y == 2 && isFirstMove){
             return true;
         }
 
+        return false;
+    }
+
+    @Override
+    public boolean isPieceInTheWay(Location destination) {
         return false;
     }
 
