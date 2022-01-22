@@ -1,5 +1,9 @@
 package Game;
 
+/*
+* This class allows to record the moves
+* */
+
 public class Move {
 
     private int moveId;

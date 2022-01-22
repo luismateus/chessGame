@@ -12,12 +12,7 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean isMoveValid(Location destination) {
-        return false;
-    }
-
-    @Override
-    public boolean isPieceInTheWay(Location destination) {
-        return false;
+    public ArrayList<Location> getPossibleMoves() {
+        return null;
     }
 }

@@ -8,8 +8,9 @@ public abstract class Piece {
     private Type type;
     private Color color;
     private boolean isDead;
-    protected boolean isFirstMove; //some pieces can have special moves if they were no moved b4 (like pawn or (rook and knight))
+    private boolean isFirstMove; //some pieces can have special moves if they were no moved b4 (like pawn or (rook and knight))
     protected Board board;
+    protected ArrayList<Location> possibleMoves;
 
     //constructor
     public Piece(Board board, Location location, Type type,Color color , boolean isDead){
@@ -19,6 +20,7 @@ public abstract class Piece {
         this.color = color;
         this.isDead = isDead;
         this.isFirstMove = true;
+        this.possibleMoves = new ArrayList<Location>();
 
         // this.board = placePiece(Location location)
     }
@@ -50,12 +52,7 @@ public abstract class Piece {
         this.location.setY(y);
     }
 
-    //Each subclass implements its own movement pattern.
-    //It will only check if the Piece moves as it is supposed to.
-    //Does not check if it reaches the end of the board or if there is another piece in the way.
-    public abstract boolean isMoveValid(Location destination);
-
-    public abstract boolean isPieceInTheWay(Location destination);
+    public abstract ArrayList<Location> getPossibleMoves();
 
 
     public boolean isFirstMove() {
