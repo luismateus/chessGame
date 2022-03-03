@@ -5,9 +5,9 @@ import Game.*;
 import java.util.ArrayList;
 
 public class Pawn extends Piece {
-    public Pawn(Board board, Location location, Type type, Color color, boolean isDead) {
-        super(board,location, type, color, isDead);
-        type = Type.PAWN;
+    public Pawn(Board board, Location location, Color color, boolean isDead) {
+        super(board,location, color, isDead);
+        this.type = Type.PAWN;
     }
 
     /*

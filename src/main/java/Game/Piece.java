@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Piece {
 
     private Location location;
-    private Type type;
+    protected Type type;
     private Color color;
     private boolean isDead;
     private boolean isFirstMove; //some pieces can have special moves if they were no moved b4 (like pawn or (rook and knight))
@@ -13,10 +13,9 @@ public abstract class Piece {
     protected ArrayList<Location> possibleMoves;
 
     //constructor
-    public Piece(Board board, Location location, Type type,Color color , boolean isDead){
+    public Piece(Board board, Location location, Color color , boolean isDead){
         this.board = board;
         this.location = location;
-        this.type = type;
         this.color = color;
         this.isDead = isDead;
         this.isFirstMove = true;
@@ -24,6 +23,7 @@ public abstract class Piece {
 
         // this.board = placePiece(Location location)
     }
+
 
     public Type getType() {
         return type;
