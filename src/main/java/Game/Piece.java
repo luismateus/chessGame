@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public abstract class Piece {
 
-    private Location location;
+    private Square square;
     protected Type type;
     private Color color;
     private boolean isDead;
     private boolean isFirstMove; //some pieces can have special moves if they were no moved b4 (like pawn or (rook and knight))
     protected Board board;
-    protected ArrayList<Location> possibleMoves;
+    protected ArrayList<Square> possibleMoves;
 
     //constructor
-    public Piece(Board board, Location location, Color color , boolean isDead){
+    public Piece(Board board, Square square, Color color){
         this.board = board;
-        this.location = location;
+        this.square = square;
         this.color = color;
-        this.isDead = isDead;
+        this.isDead = false;
         this.isFirstMove = true;
-        this.possibleMoves = new ArrayList<Location>();
+        this.possibleMoves = new ArrayList<Square>();
 
-        // this.board = placePiece(Location location)
+        this.board.placePieceInBoard(this);
     }
 
 
@@ -33,8 +33,8 @@ public abstract class Piece {
         return color;
     }
 
-    public Location getLocation(){
-        return this.location;
+    public Square getSquare(){
+        return this.square;
     }
 
     public boolean isDead() {
@@ -43,16 +43,19 @@ public abstract class Piece {
 
     public void setDead() {
         this.isDead = true;
-        this.location.setX(-1);
-        this.location.setY(-1);
+        this.square.setX(-1);
+        this.square.setY(-1);
     }
 
     public void updateLocation(int x, int y){
-        this.location.setX(x);
-        this.location.setY(y);
+        this.square.setX(x);
+        this.square.setY(y);
+        if(this.isFirstMove) {
+            this.isFirstMove = false;
+        }
     }
 
-    public abstract ArrayList<Location> getPossibleMoves();
+    public abstract ArrayList<Square> getPossibleMoves();
 
 
     public boolean isFirstMove() {

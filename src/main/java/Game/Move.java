@@ -9,15 +9,15 @@ public class Move {
     private int moveId;
     private Piece piece;
     private Piece deadPiece;
-    private Location destination;
+    private Square destination;
 
-    public Move(int moveId, Piece piece, Piece deadPiece,Location destination){
+    public Move(int moveId, Piece piece, Piece deadPiece, Square destination){
         this.moveId = moveId;
         this.piece = piece;
         this.deadPiece = deadPiece;
         this.destination = destination;
 
-        if (this.deadPiece != null){
+        if (this.deadPiece != null) {
             this.deadPiece.setDead();
         }
     }
@@ -31,7 +31,7 @@ public class Move {
         return piece;
     }
 
-    public Location getDestination() {
+    public Square getDestination() {
         return destination;
     }
 

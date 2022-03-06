@@ -1,11 +1,11 @@
 package Game;
 
-public class Location {
+public class Square {
 
     private int x;
     private int y;
 
-    public Location(int x, int y){
+    public Square(int x, int y){
         this.x = x;
         this.y = y;
     }
