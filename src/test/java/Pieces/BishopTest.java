@@ -24,7 +24,7 @@ public class BishopTest extends TestCase {
     public void testGetPossibleMoves(){
         ArrayList<Square> possibleMoves = bishop.getPossibleMoves();
         assertEquals(possibleMoves.size(),13);
-        bishop.updateLocation(0,0);
+        board.updatePieceAndBoardPosition(bishop,new Square(0,0));
         possibleMoves = bishop.getPossibleMoves();
         assertEquals(possibleMoves.size(),7);
     }

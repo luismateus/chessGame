@@ -25,7 +25,17 @@ public class Board {
         return null;
     }
 
-    public void placePieceInBoard(Piece piece){
-        this.chessBoard[piece.getSquare().getY()][piece.getSquare().getY()] = piece;
+    private void placePieceInSquare(Piece piece, Square square){
+        this.chessBoard[square.getY()][square.getY()] = piece;
+    }
+
+    private void removePieceFromSquare(Piece piece){
+        this.chessBoard[piece.getSquare().getY()][piece.getSquare().getY()] = null;
+    }
+
+    public void updatePieceAndBoardPosition(Piece piece, Square square){
+        removePieceFromSquare(piece);
+        piece.updateLocation(square.getX(),square.getY());
+        placePieceInSquare(piece,square);
     }
 }

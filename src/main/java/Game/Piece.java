@@ -21,7 +21,7 @@ public abstract class Piece {
         this.isFirstMove = true;
         this.possibleMoves = new ArrayList<Square>();
 
-        this.board.placePieceInBoard(this);
+        this.board.updatePieceAndBoardPosition(this,square);
     }
 
 

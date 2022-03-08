@@ -5,6 +5,7 @@ import Game.*;
 import java.util.ArrayList;
 
 public class Pawn extends Piece {
+
     public Pawn(Board board, Square square, Color color) {
         super(board, square, color);
         this.type = Type.PAWN;

@@ -4,6 +4,7 @@ import Game.Board;
 import Game.Color;
 import Game.Square;
 import junit.framework.TestCase;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -46,5 +47,9 @@ public class PawnTest extends TestCase {
             assertEquals(move.getX(), blackPawn.getSquare().getX()); //pawn can't move in X coordinate except to kill another piece
             assertTrue(move.getY() == 5 || move.getY() == 4); //first move can be 1 ou 2 squares in Y axis
         }
+    }
+
+    @After
+    public void tearDown(){
     }
 }

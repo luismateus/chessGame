@@ -20,19 +20,14 @@ public class Bishop extends Piece {
             otherPiece = board.getPieceByLocation(destination);
             if(otherPiece == null){
                 possibleMoves.add(destination);
+                return true;
             }
             else if(!otherPiece.getColor().equals(this.getColor())){
                 possibleMoves.add(destination);
                 return false;
             }
-            else{
-                return false;
-            }
         }
-        else{
-            return false;
-        }
-        return true;
+        return false;
     }
 
     @Override
@@ -48,7 +43,7 @@ public class Bishop extends Piece {
         boolean expandDownLeft = true;
 
         //calc maxDistance to reduce the number of iterations below
-        for(int i = 1; i < board.getDimension(); ++i){
+        for(int i = 1; i < board.getDimension(); i++){
 
             //++X , ++Y (Up-Right)
             Square upRight = new Square(currX + i , currY + i);
